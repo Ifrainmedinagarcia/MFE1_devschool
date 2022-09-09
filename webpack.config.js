@@ -10,6 +10,7 @@ const rulesForTs = {
   exclude: /node_modules/
 };
 
+
 const rulesForCss = {
   test: /\.(css|s[ac]ss)$/i,
   use: ["style-loader", "css-loader", "postcss-loader"],
@@ -39,9 +40,11 @@ module.exports = (env, arg) => {
   const { mode } = arg;
   const isProduction = mode === "production";
   return {
+    entry: './src/index.ts',
     output: {
-      filename: isProduction ? "[name].[contenthash].js" : "main.js",
+      filename: isProduction ? "[name].[contenthash].js" : "index.js",
       path: path.resolve(__dirname, "build"),
+      publicPath: 'auto',
     },
 
     resolve: {
@@ -50,7 +53,15 @@ module.exports = (env, arg) => {
 
     devServer: {
       port: 3001,
+      open: true,
       historyApiFallback: true,
+      liveReload: true,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      }
+     
     },
 
     module: { rules },
@@ -60,9 +71,11 @@ module.exports = (env, arg) => {
       new ModuleFederationPlugin({
         name: "mfe1",
         filename: "remoteEntry.js",
-        remotes: {},
+        remotes: {
+          "app_container": "app_container@http://localhost:3000/remoteEntry.js",
+        },
         exposes: {},
-        /* shared: {
+        shared: {
           ...deps,
           react: {
             singleton: true,
@@ -72,7 +85,7 @@ module.exports = (env, arg) => {
             singleton: true,
             requiredVersion: deps["react-dom"],
           },
-        }, */
+        },
       }),
       new HtmlWebPackPlugin({
         template: "./public/index.html",

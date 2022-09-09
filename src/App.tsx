@@ -1,10 +1,9 @@
+import Header  from 'app_container/Header';
 
 
 function App() {
   return (
-    <div className="App">
-      Hi
-    </div>
+    <Header />
   );
 }
 
