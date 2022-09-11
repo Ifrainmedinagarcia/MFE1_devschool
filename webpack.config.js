@@ -1,4 +1,5 @@
 const { HotModuleReplacementPlugin } = require('webpack');
+const { MFLiveReloadPlugin } = require("@module-federation/fmr");
 const deps = require("./package.json").dependencies;
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
@@ -40,7 +41,6 @@ module.exports = (env, arg) => {
   const { mode } = arg;
   const isProduction = mode === "production";
   return {
-    entry: './src/index.ts',
     output: {
       filename: isProduction ? "[name].[contenthash].js" : "index.js",
       path: path.resolve(__dirname, "build"),
@@ -55,26 +55,27 @@ module.exports = (env, arg) => {
       port: 3001,
       open: true,
       historyApiFallback: true,
-      liveReload: true,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-      }
-     
+      
     },
 
     module: { rules },
 
     plugins: [
       new HotModuleReplacementPlugin(),
+      new MFLiveReloadPlugin({
+        port: 3001, 
+        container: "clothes",
+        standalone: false,
+      }),
       new ModuleFederationPlugin({
-        name: "mfe1",
+        name: "clothes",
         filename: "remoteEntry.js",
         remotes: {
           "app_container": "app_container@http://localhost:3000/remoteEntry.js",
         },
-        exposes: {},
+        exposes: {
+          "./App": "./src/App"
+        },
         shared: {
           ...deps,
           react: {

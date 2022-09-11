@@ -1,0 +1,41 @@
+.container__menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--shadow);
+  height: 100%;
+  position: absolute;
+  width: 20%;
+}
+
+
+.nav__ul {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav_sub {
+  text-decoration: none;
+  list-style: none;
+  margin: 5px;
+  cursor: pointer;
+  color: black;
+}
+
+
+.nav-active_sub {
+  list-style: none;
+  cursor: pointer;
+  color: black;
+  margin: 5px;
+  text-decoration: line-through
+}
+
+.nav_sub:hover {
+  text-decoration: line-through
+}
