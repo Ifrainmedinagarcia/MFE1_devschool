@@ -1,0 +1,9 @@
+.container_all {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  float: right;
+  width: 80%;
+}

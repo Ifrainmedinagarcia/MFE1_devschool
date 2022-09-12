@@ -44,7 +44,7 @@ module.exports = (env, arg) => {
     output: {
       filename: isProduction ? "[name].[contenthash].js" : "index.js",
       path: path.resolve(__dirname, "build"),
-      publicPath: 'auto',
+      publicPath: 'http://localhost:3001/',
     },
 
     resolve: {
@@ -54,8 +54,9 @@ module.exports = (env, arg) => {
     devServer: {
       port: 3001,
       open: true,
-      historyApiFallback: true,
-      
+      historyApiFallback: {
+        index: '/index.html'
+      }
     },
 
     module: { rules },
@@ -63,7 +64,7 @@ module.exports = (env, arg) => {
     plugins: [
       new HotModuleReplacementPlugin(),
       new MFLiveReloadPlugin({
-        port: 3001, 
+        port: 3001,
         container: "clothes",
         standalone: false,
       }),
@@ -85,6 +86,10 @@ module.exports = (env, arg) => {
           "react-dom": {
             singleton: true,
             requiredVersion: deps["react-dom"],
+          },
+          'react-router-dom': {
+            singleton: true,
+            version: deps['react-router-dom']
           },
         },
       }),
