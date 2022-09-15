@@ -1,9 +1,18 @@
 .container_all {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   position: relative;
   float: right;
   width: 80%;
+  z-index: -2;
 }
+
+.message{
+  position: relative;
+  height: 150px;
+  width: 100%;
+  text-align: center;
+  top: 150px;
+}
+

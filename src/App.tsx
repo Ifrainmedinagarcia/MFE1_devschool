@@ -1,9 +1,13 @@
-import Navigation from './Components/routes/Navigation';
+import { CartProvider } from "./context/CartProvider";
+import Navigation from "./routes/Navigation";
+
 
 
 function App() {
   return (
-    <Navigation />
+    <CartProvider >
+      <Navigation />
+    </CartProvider>
   );
 }
 

@@ -6,6 +6,8 @@
   top: 100px;
   transition: all .5s ease;
   width: 400px;
+  background-color: var(--backgound);
+  
 }
 
 .card__product:hover{
@@ -17,7 +19,6 @@
   object-fit: contain;
   width: 100%;
 }
-
 
 .container__content{
   position: relative;

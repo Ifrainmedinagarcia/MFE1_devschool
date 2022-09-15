@@ -46,6 +46,8 @@ module.exports = (env, arg) => {
       path: path.resolve(__dirname, "build"),
       publicPath: 'http://localhost:3001/',
     },
+    
+    devtool: "source-map",
 
     resolve: {
       extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],

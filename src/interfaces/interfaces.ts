@@ -5,6 +5,9 @@ export interface Product {
   price: string
 }
 
-export interface Products {
-  products: Product[]
+
+export interface CartState {
+  productCount: number;
+  products: Product[];
+  total: number
 }

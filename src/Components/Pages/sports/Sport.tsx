@@ -1,10 +1,9 @@
+import { All } from "../All/All"
 
 
 export const Sport = () => {
   return (
-    <div>
-      Sport
-    </div>
+    <All />
   )
 }
 

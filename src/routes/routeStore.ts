@@ -1,19 +1,19 @@
-import { All, Shoes } from '../Pages';
 import { LazyExoticComponent } from 'react';
-import { Sport } from '../Pages/sports/Sport';
+import { All, Sport } from '../Components/Pages';
+import { CartPage } from '../Components/Pages/cart/CartPage/CartPage';
 
 
 
 type JSXComponent = () => JSX.Element
 
-interface Route {
+interface Routes {
   path: string;
   to: string;
   Component: JSXComponent | LazyExoticComponent<JSXComponent>;
-  name: string
+  name?: string
 }
 
-export const routes: Route[] = [
+export const route: Routes[] = [
   {
     path: "all",
     to: "all",
@@ -26,10 +26,10 @@ export const routes: Route[] = [
     Component: Sport,
     name: "Deportes"
   },
+
   {
-    path: "shoes",
-    to: "shoes",
-    Component: Shoes,
-    name: "Zapatos"
-  }
+    path: "cart",
+    to: "cart",
+    Component: CartPage,
+  },
 ]
