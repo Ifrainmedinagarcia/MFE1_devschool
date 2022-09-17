@@ -18,12 +18,16 @@ export const CartProvider = ({ children }: Props): JSX.Element => {
 
   const [CartState, dispatch] = useReducer(CartReducer, INITIAL_STATE)
 
+  const { products } = CartState
+
   const addToCart = (product: Product) => {
+    if (products.includes(product)) return
+
     dispatch({ type: "addProduct", payload: product })
   }
 
-  const deleteProduct = (id: string) => {
-    dispatch({ type: "deleteProduct", id })
+  const deleteProduct = (product: Product) => {
+    dispatch({ type: "deleteProduct", payload: product })
   }
 
   return (

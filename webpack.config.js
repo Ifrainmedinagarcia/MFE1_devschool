@@ -46,7 +46,7 @@ module.exports = (env, arg) => {
       path: path.resolve(__dirname, "build"),
       publicPath: 'http://localhost:3001/',
     },
-    
+
     devtool: "source-map",
 
     resolve: {
@@ -58,10 +58,17 @@ module.exports = (env, arg) => {
       open: true,
       historyApiFallback: {
         index: '/index.html'
-      }
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
+        'Access-Control-Allow-Methods': '*',
+      },
     },
 
+
     module: { rules },
+
 
     plugins: [
       new HotModuleReplacementPlugin(),

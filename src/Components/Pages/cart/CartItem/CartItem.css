@@ -1,0 +1,38 @@
+.container__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+}
+
+.image__cart {
+  width: 100px;
+  margin-left: 10px;
+}
+
+.name__cart {
+  margin-left: 10px;
+}
+
+hr{
+  margin: 10px;
+}
+
+.delete__button{
+  position: absolute;
+  right: 100px
+}
+
+.btn__delete{
+  width: 100px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(255, 0, 81);
+  transition: all .5s ease;
+}
+
+.btn__delete:hover {
+  box-shadow: var(--shadow);
+}

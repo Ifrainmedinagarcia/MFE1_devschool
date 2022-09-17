@@ -4,4 +4,8 @@ module.exports = {
   moduleNameMapper: {
     "\\.(css|sass)$": "identity-obj-proxy",
   },
+  "automock": false,
+  "setupFiles": [
+    "./setupJest.js"
+  ]
 };
