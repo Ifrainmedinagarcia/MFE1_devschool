@@ -1,8 +1,7 @@
-import { Product } from "../../interfaces/interfaces";
 import "./Card.css"
-import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
-
+import { Product } from "../../interfaces/interfaces";
+import { useContext, useEffect, useState } from 'react';
 
 
 interface Props {
@@ -15,7 +14,18 @@ interface Props {
 
 export const Card = ({ images, title, price, product, id }: Props) => {
 
-  const { addToCart } = useContext(CartContext)
+  const { addToCart, CartState } = useContext(CartContext)
+
+  const [Exists, setExists] = useState<boolean>(false)
+
+  const { products } = CartState
+
+  useEffect(() => {
+    const productExits = products.findIndex(p => p.id === product.id);
+    if (productExits >= 0) setExists(true);
+  }, [])
+
+  const addCart = () => !Exists && addToCart?.(product)
 
   return (
     <div className="card__product">
@@ -25,7 +35,7 @@ export const Card = ({ images, title, price, product, id }: Props) => {
           <li>{title}</li>
           <li>${price}</li>
         </ul>
-        <button onClick={() => { addToCart(product) }} className="btn__add" type="button">Add to cart</button>
+        <button onClick={addCart} className="btn__add" type="button">Add to cart</button>
       </div>
     </div>
   )

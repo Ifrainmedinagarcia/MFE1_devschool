@@ -1,7 +1,8 @@
 import { Product } from "../../../../interfaces/interfaces"
 import "./CartItem.css"
 import { useContext } from 'react';
-import { CartContext } from "../../../../context/CartContext";
+import { CartContext } from '../../../../context/CartContext';
+
 
 interface Props {
   product: Product
@@ -10,7 +11,7 @@ interface Props {
 const CartItem = ({ product }: Props): JSX.Element => {
 
   const { deleteProduct } = useContext(CartContext)
-   
+
   return (
     <>
       <div className="container__item">
@@ -18,7 +19,7 @@ const CartItem = ({ product }: Props): JSX.Element => {
         <span className="name__cart">{`${product?.title}:`}</span>
         <span className="name__cart">{`$${product?.price}`}</span>
         <div className="delete__button">
-          <button onClick={()=> deleteProduct(product)} className="btn__delete">delete</button>
+          <button onClick={() => deleteProduct?.(product)} className="btn__delete">delete</button>
         </div>
       </div>
       <hr />

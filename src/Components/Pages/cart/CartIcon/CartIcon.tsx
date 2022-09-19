@@ -1,15 +1,16 @@
 import "./CartIcon.css"
-import { useContext } from 'react';
 import { NavLink } from "react-router-dom";
-import { CartContext } from "../../../../context/CartContext";
+import { useContext } from 'react';
+import { CartContext } from '../../../../context/CartContext';
+
 
 
 
 export const CartIcon = () => {
+
   const { CartState } = useContext(CartContext)
 
   const { productCount } = CartState
-
 
   return (
     <>

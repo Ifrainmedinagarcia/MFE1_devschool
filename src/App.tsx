@@ -5,7 +5,7 @@ import Navigation from "./routes/Navigation";
 
 function App() {
   return (
-    <CartProvider >
+    <CartProvider>
       <Navigation />
     </CartProvider>
   );
