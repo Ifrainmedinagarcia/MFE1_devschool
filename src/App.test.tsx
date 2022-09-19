@@ -16,11 +16,11 @@ describe('Test Integretion', () => {
     getProducts.mockResolvedValue(products);
     await act(async () => {
       render(
-        <CartProvider>
-          <Router location={"/all"} navigator={history}>
-            <App />
-          </Router>
-        </CartProvider>
+          <CartProvider>
+            <Router location={"/all"} navigator={history}>
+              <App />
+            </Router>
+          </CartProvider>
       )
     })
   })
