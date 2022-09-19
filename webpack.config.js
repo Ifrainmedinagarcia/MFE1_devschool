@@ -56,9 +56,7 @@ module.exports = (env, arg) => {
     devServer: {
       port: 3001,
       open: true,
-      historyApiFallback: {
-        index: '/index.html'
-      },
+      historyApiFallback: true,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Headers': '*',
@@ -71,12 +69,12 @@ module.exports = (env, arg) => {
 
 
     plugins: [
-      new HotModuleReplacementPlugin(),
+      /* new HotModuleReplacementPlugin(),
       new MFLiveReloadPlugin({
         port: 3001,
         container: "clothes",
         standalone: false,
-      }),
+      }), */
       new ModuleFederationPlugin({
         name: "clothes",
         filename: "remoteEntry.js",
@@ -100,6 +98,7 @@ module.exports = (env, arg) => {
       }),
       new HtmlWebPackPlugin({
         template: "./public/index.html",
+        filename: "./index.html",
       }),
     ],
 
