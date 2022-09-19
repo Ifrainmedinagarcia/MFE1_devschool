@@ -43,8 +43,7 @@ module.exports = (env, arg) => {
   return {
     output: {
       filename: isProduction ? "[name].[contenthash].js" : "index.js",
-      path: path.resolve(__dirname, "build"),
-      publicPath: 'http://localhost:3001/',
+      path: path.resolve(__dirname, "build")
     },
 
     devtool: "source-map",
