@@ -15,7 +15,7 @@ interface Routes {
 
 export const route: Routes[] = [
   {
-    path: "all",
+    path: "app_container_devschool/all",
     to: "all",
     Component: All,
     name: "Todo"
@@ -27,7 +27,7 @@ export const route: Routes[] = [
       name: "Deportes"
     }, */
   {
-    path: "cart",
+    path: "app_container_devschool/cart",
     to: "cart",
     Component: CartPage,
   },
