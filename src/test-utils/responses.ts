@@ -4,5 +4,5 @@ export const products = [
     title: "test",
     price: "300",
     images: "test__image"
-  }
+  },
 ]

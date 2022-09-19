@@ -2,6 +2,7 @@ import { render, act, screen } from "@testing-library/react";
 import { All } from "./All";
 import { getAllProducts } from '../../../clients/All/getAllProducts';
 import { products } from "../../../test-utils/responses";
+import { CartProvider } from "../../../context/CartProvider";
 
 
 jest.mock("../../../clients/All/getAllProducts")
@@ -15,7 +16,9 @@ describe('All component', () => {
     getProducts.mockResolvedValue(products);
     await act(async () => {
       render(
-        <All />
+        <CartProvider>
+          <All />
+        </CartProvider>
       )
     })
     expect(await screen.findByText("test")).toBeInTheDocument()

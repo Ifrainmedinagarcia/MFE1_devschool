@@ -11,9 +11,9 @@ jest.mock("./clients/All/getAllProducts")
 const getProducts = getAllProducts as jest.Mock
 
 describe('Test Integretion', () => {
+  const history = createMemoryHistory();
   beforeEach(async () => {
     getProducts.mockResolvedValue(products);
-    const history = createMemoryHistory();
     await act(async () => {
       render(
         <CartProvider>
@@ -26,6 +26,7 @@ describe('Test Integretion', () => {
   })
 
   test('should be with INITIAL STATE', async () => {
+    expect(history.location.pathname).toBe('/all');
     expect(await screen.findByText("test")).toBeInTheDocument()
   });
 
@@ -38,13 +39,11 @@ describe('Test Integretion', () => {
   test('should redirec to cart page', async () => {
     const btn = await screen.findByRole("button", { name: "Add to cart" })
     const btnCart = screen.getByTestId("cart__btn")
-    
+
     fireEvent.click(btn)
     fireEvent.click(btnCart)
-  
-    expect(screen.getByText("1")).toBeInTheDocument()
-    
 
-  
+    expect(history.location.pathname).toBe('/cart');
+
   });
 });

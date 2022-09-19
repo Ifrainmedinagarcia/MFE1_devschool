@@ -1,5 +1,6 @@
 import { render, screen, act } from "@testing-library/react";
 import { getAllProducts } from "../../../clients/All/getAllProducts";
+import { CartProvider } from "../../../context/CartProvider";
 import { products } from "../../../test-utils/responses";
 import { Sport } from "./Sport";
 
@@ -14,7 +15,9 @@ describe('Sport Component', () => {
     getProducts.mockResolvedValue(products);
     await act(async () => {
       render(
-        <Sport />
+        <CartProvider>
+          <Sport />
+        </CartProvider>
       )
     })
     expect(await screen.findByText("test")).toBeInTheDocument()

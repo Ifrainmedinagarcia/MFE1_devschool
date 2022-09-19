@@ -15,6 +15,7 @@ export const All = () => {
   const { addToCart, CartState } = useContext(CartContext)
 
   const { products } = CartState
+  
 
   useEffect(() => {
     if (products?.length > 0) {

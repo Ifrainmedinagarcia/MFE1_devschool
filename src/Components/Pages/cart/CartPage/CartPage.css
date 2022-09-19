@@ -40,3 +40,9 @@
 .button__cart:hover {
   box-shadow: var(--shadow);
 }
+
+.success__message{
+  position: relative;
+  margin: auto;
+  text-align: center;
+}

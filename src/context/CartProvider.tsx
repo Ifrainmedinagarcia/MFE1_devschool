@@ -2,7 +2,6 @@ import { CartContext } from "./CartContext"
 import { CartState, Product } from '../interfaces/interfaces';
 import { useReducer } from "react";
 import { CartReducer } from "./cartReducer";
-import { products } from '../test-utils/responses';
 
 
 const INITIAL_STATE: CartState = {
@@ -24,10 +23,8 @@ export const CartProvider = ({ children }: Props): JSX.Element => {
   const { products } = CartState
 
   const addToCart = (product: Product) => {
-    console.log(CartState);
-
+  
     if (products.includes(product)) return
-
 
     dispatch({ type: "addProduct", payload: product })
   }
