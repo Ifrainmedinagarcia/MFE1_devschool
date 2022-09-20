@@ -75,7 +75,7 @@ module.exports = (env, arg) => {
         standalone: false,
       }), */
       new ModuleFederationPlugin({
-        name: "clothes",
+        name: "store",
         filename: "remoteEntry.js",
         remotes: {
           "app_container": "app_container@https://ifrainmedinagarcia.github.io/app_container_devschool/remoteEntry.js",

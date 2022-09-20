@@ -17,7 +17,7 @@ describe('Test Integretion', () => {
     await act(async () => {
       render(
           <CartProvider>
-            <Router location={"/"} navigator={history}>
+            <Router location={"/all"} navigator={history}>
               <App />
             </Router>
           </CartProvider>

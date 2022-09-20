@@ -15,12 +15,12 @@ interface Routes {
 
 export const route: Routes[] = [
   {
-    path: "/",
-    to: "/",
+    path: "all",
+    to: "all",
     Component: All,
     name: "Todo"
   },
-  /*   {
+/*     {
       path: "sports",
       to: "sports",
       Component: Sport,
