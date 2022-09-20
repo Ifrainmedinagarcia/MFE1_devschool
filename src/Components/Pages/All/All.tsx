@@ -1,10 +1,10 @@
 import "./All.css"
-import { adapterProducts } from '../../../clients/All/adapter';
 import { Card } from "../../Card/Card"
-import { getAllProducts } from '../../../clients/All/getAllProducts';
 import { useEffect, useState, useContext } from 'react';
 import { Product } from '../../../interfaces/interfaces';
 import { CartContext } from '../../../context/CartContext';
+import { productsApi } from "../../../db/Products";
+
 
 
 
@@ -24,8 +24,7 @@ export const All = () => {
   }, [addToCart])
 
   const getData = async () => {
-    const data = await getAllProducts("https://api.escuelajs.co/api/v1/products?offset=0&limit=12")
-    setData(adapterProducts(data))
+    setData(productsApi)
   }
 
   useEffect(() => {

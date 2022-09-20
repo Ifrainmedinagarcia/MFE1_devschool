@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CartContext } from "../../../../context/CartContext";
+import { productsApi } from '../../../../db/Products';
 import { CartState } from "../../../../interfaces/interfaces";
-import { products } from "../../../../test-utils/responses";
 import { CartPage } from "./CartPage";
 
 
@@ -31,7 +31,7 @@ describe('CartPage Component', () => {
   test('should show the success message', () => {
     const CartState: CartState = {
       productCount: 1,
-      products: [products[0]],
+      products: [productsApi[0]],
       total: 300
     }
     render(
@@ -49,7 +49,7 @@ describe('CartPage Component', () => {
   test('should show the success message', () => {
     const CartState: CartState = {
       productCount: 1,
-      products: [products[0]],
+      products: [productsApi[0]],
       total: 300
     }
     render(

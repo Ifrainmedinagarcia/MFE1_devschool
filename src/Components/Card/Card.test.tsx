@@ -2,9 +2,10 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { CartProvider } from "../../context/CartProvider";
 import { Card } from "./Card";
 import { products } from '../../test-utils/responses';
+import { productsApi } from "../../db/Products";
 
 
-const { id, images, price, title } = products[0]
+const { id, images, price, title } = productsApi[0]
 
 describe('Name of the group', () => {
   test('should ', () => {
