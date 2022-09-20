@@ -15,8 +15,8 @@ interface Routes {
 
 export const route: Routes[] = [
   {
-    path: "all",
-    to: "all",
+    path: "/",
+    to: "/",
     Component: All,
     name: "Todo"
   },

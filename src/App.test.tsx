@@ -17,7 +17,7 @@ describe('Test Integretion', () => {
     await act(async () => {
       render(
           <CartProvider>
-            <Router location={"/all"} navigator={history}>
+            <Router location={"/"} navigator={history}>
               <App />
             </Router>
           </CartProvider>
@@ -26,7 +26,7 @@ describe('Test Integretion', () => {
   })
 
   test('should be with INITIAL STATE', async () => {
-    expect(history.location.pathname).toBe('/all');
+    expect(history.location.pathname).toBe('/');
     expect(await screen.findByText("test")).toBeInTheDocument()
   });
 

@@ -1,19 +1,12 @@
 import "./Navigation.css"
-import { Routes, Route, NavLink, useNavigate } from "react-router-dom"
-import { useEffect } from "react";
+import { Routes, Route, NavLink } from "react-router-dom"
+
 
 import { route } from "./routeStore";
 import { CartIcon } from "../Components/Pages/cart/CartIcon/CartIcon";
 
 
 const Navigation = (): JSX.Element => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    navigate("all")
-  }, [])
-
-
   return (
     <>
       <div className="container__menu">

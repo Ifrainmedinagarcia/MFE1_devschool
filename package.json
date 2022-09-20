@@ -8,6 +8,7 @@
     "dev": "webpack serve --mode development",
     "test:watch": "npm run test -- --watch"
   },
+  "homepage": "https://ifrainmedinagarcia.github.io",
   "keywords": [],
   "author": "Ifrain",
   "license": "ISC",
