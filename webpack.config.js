@@ -71,7 +71,7 @@ module.exports = (env, arg) => {
      /*  new HotModuleReplacementPlugin(),
       new MFLiveReloadPlugin({
         port: 3001,
-        container: "clothes",
+        container: "store",
         standalone: false,
       }), */
       new ModuleFederationPlugin({

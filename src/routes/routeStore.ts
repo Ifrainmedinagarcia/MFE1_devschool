@@ -20,12 +20,12 @@ export const route: Routes[] = [
     Component: All,
     name: "Todo"
   },
-/*     {
-      path: "sports",
-      to: "sports",
-      Component: Sport,
-      name: "Deportes"
-    }, */
+  {
+    path: "sports",
+    to: "sports",
+    Component: Sport,
+    name: "Deportes"
+  },
   {
     path: "cart",
     to: "cart",
