@@ -3,7 +3,7 @@ import Navigation from "./routes/Navigation";
 
 
 
-function App() {
+function App(): JSX.Element {
   return (
     <CartProvider>
       <Navigation />
