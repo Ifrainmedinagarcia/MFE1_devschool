@@ -12,7 +12,12 @@ const Navigation = (): JSX.Element => {
       <div className="container__menu">
         <nav>
           <ul className="nav__ul">
-            {route?.map(({ name, to }) => <NavLink key={to} to={to} className={({ isActive }) => isActive ? "nav-active_sub" : "nav_sub"}>{name}</NavLink>)}
+            {route?.map(({ name, to }) => {
+              if (!name) return
+              return (
+                <NavLink key={to} to={to} className={({ isActive }) => isActive ? "nav-active_sub" : "nav_sub"}>{name}</NavLink>
+              )
+            })}
           </ul>
         </nav>
       </div>
